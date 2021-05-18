@@ -1,27 +1,23 @@
 @import url("https://rsms.me/inter/inter.css");
 :root {
-    --almostblack: #212121;
-    --almostwhite: #F4F4F4;
-    --halftransparent: #FFFFFF80;
-    --lambda-lightyellow: hsl(45, 80%, 80%);
-    --lambda-lightblue: hsl(208, 80%, 80%);
+    --almost-black: #212121;
+    --almost-white: #F4F4F4;
+    --half-opaque-white: #FFFFFF80;
+    --half-opaque-black: #00000080;
+    --blue-pop: #2BA9B8;
+    --cyro-green: #BFD630;
 }
 body {
     margin: 0;
     height: 100vh;
-    background: linear-gradient(to top, var(--lambda-lightyellow), var(--lambda-lightblue));
+    background: linear-gradient(to bottom right, var(--blue-pop), var(--cyro-green));
     font-family: "Inter", sans-serif;
-    color: var(--almostblack);
+    color: var(--almost-black);
     font-size: x-large;
 }
 @supports (font-variation-settings: normal) {
     body { 
         font-family: 'Inter var', sans-serif;
-    }
-}
-@media screen and (max-width: 800px) {
-    .hide-if-mobile {
-        display: none;
     }
 }
 nav {
@@ -33,8 +29,14 @@ nav {
     min-height: 45px;
     max-height: 65px;
     height: 5%;
-    background-color: var(--halftransparent);
+    background-color: var(--half-opaque-white);
     list-style-type: none;
+}
+@media (prefers-color-scheme: dark) {
+    nav{
+        background-color: var(--half-opaque-black);
+        color: var(--almost-white);
+    }
 }
 nav li {
     margin: 0 1.25% 0 1.25%;
@@ -47,6 +49,11 @@ a {
 a:hover, a.current {
     font-weight: bold;
 }
+@media screen and (max-width: 800px) {
+    .hide-if-mobile {
+        display: none;
+    }
+}
 .main {
     display: flex;
     height: 100vh;
@@ -54,8 +61,10 @@ a:hover, a.current {
     justify-content: center;
     align-items: center;
     text-align: center;
+    color: var(--almost-black);
 }
 .centre-logo {
+    user-select: none;
     margin: 2.5%;
     display: inherit;
     justify-content: inherit;
@@ -64,5 +73,6 @@ a:hover, a.current {
     font-size: 15rem;
     width: 20rem;
     height: 20rem;
-    background-color: #F4F4F4;
+    color: var(--almost-black);
+    background-color: var(--almost-white);
 }
